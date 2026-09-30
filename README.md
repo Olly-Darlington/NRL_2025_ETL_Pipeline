@@ -1,10 +1,10 @@
-ETL Pipeline ReadMe
+__ETL Pipeline ReadMe__
 
 This project represents my first attempt at an ETL pipeline. I chose to conduct this process on the 2025 National Rugby League season as it is a sport I have a real passion for, and to make for a more exciting challenge than simply ripping a dataset from a repository on GitHub or a site like Kaggle.
 
-The Pipeline Process
+__The Pipeline Process__
 
-Extract
+**Extract**
 
 Extracting data from the webpage represented an interesting challenge. Take a look at the structure of the data on the webpage:
 
@@ -20,11 +20,11 @@ Swapping teams for players returns the stats for the top 50 players in each stat
 
 The men’s NRL premiership has a competitionID of 111, and for this project a season year of 2025. This analysis can be easily repeated for all years on public record by iterating through the SeasonYear variable, or for the other competitions by altering the competitionID. (Women’s Premiership = 161, Men’s origin series = 116 etc.)
 
-For a note on statIDs, the ID for ‘points’ = 76, and ‘post contact meters’ = 1000112. To obtain the StatID’s for all stats I wanted to scrape, I deemed the quickest way to obtain all of the StatIDs I wanted was to manually read the relevant URLs. There are only 33 total categories, 21 of which I wanted for further analysis, so this was not a time consuming process.
+For a note on statIDs, there is no pattern or relation between them. The ID for ‘points’ = 76, and ‘post contact meters’ = 1000112. To obtain the StatID’s for all stats I wanted to scrape, I deemed the quickest way to obtain all of the StatIDs I wanted was to manually read the relevant URLs as there was no way to iterate through statIDs and building a new script for this would have been time consuming. There are only 33 total categories, 21 of which I wanted to scrape for further analysis, so this was a quick process.
 
-Running the script for both teams and players returned 42 total CSVs to move forward in the pipeline.
+Running the script for both teams and players returned 42 total .CSVs to move forward in the pipeline.
 
-Transform
+**Transform**
 
 Within the CSVs, 8 columns were returned, Season containing the year (2025), stat_category containing the mane assigned to the statID variable, stat_ID, a blank column showing the play/teams rank compared to the other 17 teams or the top 50 players in that stat. Team/Player category, containing the team name and for players, a concatenation of the players first name, surname and team (e.g NathanClearyPanthers or PayneHaasBroncos). Next was a Matches_played category, a blank column containing the stat total and finally Source_URL.
 
@@ -38,8 +38,8 @@ This process left two tables ready to proceed to the load phase:
 
 <img width="978" height="452" alt="Image" src="https://github.com/user-attachments/assets/0c859b51-ab8d-45a8-9040-ab34eb215d05" />
 
-Load
-
+**Load
+**
 The two CSV’s can now be loaded into PostgreSQL to allow the use of the SQL language to query the dataset and return data that can be used to answer analytical questions, for example does a teams error count show a significant negative correlation with the amount of tries or point they score in a given season.
 
 I plan to conduct analysis on this data as a future project.
