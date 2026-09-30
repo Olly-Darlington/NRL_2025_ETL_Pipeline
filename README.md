@@ -32,6 +32,8 @@ The first step to clean this data was to assign headers to blank rows and concat
 
 With two complete .csv’s, I could begin cleaning the data using excel. I began by filtering for any blank data or rows, to which I did not find any. Should any have been present, I would have seen if I could locate the missing data and input it or delete the row in its entirety should it not be present.  The next step was to break the player category containing the name and team into three columns, name, surname and team. This was achievable using excels flash fill feature after inputting the first row. This did trip up in two areas – Double barrelled surnames, and the ‘Sea Eagles’. Double barrelled surnames were not an issue as the players are easily identifiable from the forename and second part of the double barrel which was returned. For the Sea eagles, I simply filtered the team column for ‘Eagles’ and replaced all with ‘Sea Eagles’.
 
+I chose to create an column listing the per-game averages for each statistic for both teams and players to allow for comparability down the line in the analysis pipeline. This was simply done by dividing the games played statistic by the total in each category and was done inside excel.
+
 This process left two tables ready to proceed to the load phase:
 
 <img width="978" height="452" alt="Image" src="https://github.com/user-attachments/assets/0c859b51-ab8d-45a8-9040-ab34eb215d05" />
@@ -41,6 +43,8 @@ Load
 The two CSV’s can now be loaded into PostgreSQL to allow the use of the SQL language to query the dataset and return data that can be used to answer analytical questions, for example does a teams error count show a significant negative correlation with the amount of tries or point they score in a given season.
 
 I plan to conduct analysis on this data as a future project.
+
+The cleaned finalised data can be seen in the Team_stats and Player_stats .csv files. Direct outputs from the web scraper can be seen as the pre_cleaning_*_.csv files
 
 References
 
