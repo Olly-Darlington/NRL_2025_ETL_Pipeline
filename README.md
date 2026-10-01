@@ -38,8 +38,7 @@ This process left two tables ready to proceed to the load phase:
 
 <img width="978" height="452" alt="Image" src="https://github.com/user-attachments/assets/0c859b51-ab8d-45a8-9040-ab34eb215d05" />
 
-**Load
-**
+**Load**
 The two CSV’s can now be loaded into PostgreSQL to allow the use of the SQL language to query the dataset and return data that can be used to answer analytical questions, for example does a teams error count show a significant negative correlation with the amount of tries or point they score in a given season.
 
 I plan to conduct analysis on this data as a future project.
